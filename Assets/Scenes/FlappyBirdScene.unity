@@ -574,6 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 503559729}
+  bestscoreText: {fileID: 455564860}
   restartText: {fileID: 1602398851}
 --- !u!114 &251637204
 MonoBehaviour:
@@ -851,7 +852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &455564859
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1986,7 +1987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &752049613
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3929,7 +3930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1418796972
 RectTransform:
   m_ObjectHideFlags: 0

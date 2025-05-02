@@ -26,25 +26,27 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        uIManager.UpdateScore(0);
-
         // 저장된 최고 점수 불러오기 (없으면 기본값 0)
         bestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
+
+        uIManager.UpdateScore(0, bestScore);
+
+        //uIManager.UpdateBestScore(bestScore);
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over");
-        
-        if (bestScore < currentScore) // 최고 점수 < 현재 점수
-        {
-            Debug.Log("최고 점수 갱신");
-            Debug.Log($"기존 최고 점수 : {bestScore}");
 
-            bestScore = currentScore; // 최고 점수 갱신
+        //if (bestScore < currentScore) // 최고 점수 < 현재 점수
+        //{
+        //    Debug.Log("최고 점수 갱신");
+        //    Debug.Log($"기존 최고 점수 : {bestScore}");
 
-            PlayerPrefs.SetInt(BestScoreKey, bestScore); // PlayerPrefs에 저장
-        }
+        //    bestScore = currentScore; // 최고 점수 갱신
+
+        //    PlayerPrefs.SetInt(BestScoreKey, bestScore); // PlayerPrefs에 저장
+        //}
 
         Debug.Log($"현재 최고 점수 : {bestScore}");
 
@@ -58,13 +60,21 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int score)
     {
-        //if(Player.isDead != true) // 플레이어가 죽지 않았다면
-        //{
-            // 점수 증가
-            currentScore += score;
-            Debug.Log("Score : " + currentScore);
-            uIManager.UpdateScore(currentScore);
-        //}
-        //Debug.Log("게임 오버 상태이므로 점수 증가 X");
+        // 점수 증가
+        currentScore += score;
+
+        if (bestScore < currentScore) // 최고 점수 < 현재 점수
+        {
+            Debug.Log("최고 점수 갱신");
+            Debug.Log($"기존 최고 점수 : {bestScore}");
+
+            bestScore = currentScore; // 최고 점수 갱신
+
+            PlayerPrefs.SetInt(BestScoreKey, bestScore); // PlayerPrefs에 저장
+        }
+
+        Debug.Log("Score : " + currentScore);
+        uIManager.UpdateScore(currentScore, bestScore);
+
     }
 }
