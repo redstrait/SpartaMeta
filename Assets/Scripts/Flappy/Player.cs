@@ -9,8 +9,7 @@ public class Player : MonoBehaviour
 
     public float flapForce = 6f; // 점프 힘
     public float forwardSpeed = 3f; // 전진 힘
-    public bool isDead = false; // 사망 여부
-    // public static bool isDead = false; // 사망 여부
+    public static bool isDead = false; // 사망 여부
     float deathCooldown = 0f; // 사망에 필요한 접촉 유지 시간
 
     bool isFlap = false; // 점프 여부
