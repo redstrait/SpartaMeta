@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayerPrefs.DeleteAll(); // 데이터 초기화용 코드
         // 저장된 최고 점수 불러오기 (없으면 기본값 0)
         bestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
 
@@ -58,10 +57,8 @@ public class GameManager : MonoBehaviour
         uIManager.SetRestart();
     }
 
-    public void RestartGame()
+    public void ReturnMain()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Player.isDead = false; // 사망 여부 초기화
         SceneManager.LoadScene("MainScene");
     }
 

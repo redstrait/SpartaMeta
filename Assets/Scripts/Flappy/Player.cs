@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour // 미니 게임에서의 Player 스크립트
 {
     Animator animator;
     Rigidbody2D _regidbody;
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
                 // 스페이스바 or 좌클릭 시 게임 재시작
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
-                    gameManager.RestartGame();
+                    gameManager.ReturnMain();
                 }
             }
             else // deathCooldown이 0 이하가 아니라면
