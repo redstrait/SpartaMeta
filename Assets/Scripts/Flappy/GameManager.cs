@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        //PlayerPrefs.DeleteAll(); // 데이터 초기화용 코드
         // 저장된 최고 점수 불러오기 (없으면 기본값 0)
         bestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
 
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt(PrevBestScoreKey, bestScore);
 
         // 마지막으로 플레이한 라운드 점수 초기화
-        PlayerPrefs.DeleteKey("LastScoreKey");
+        PlayerPrefs.DeleteKey(LastScoreKey);
 
         uIManager.UpdateScore(0, bestScore);
 

@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
         {
             goodrestartText.gameObject.SetActive(true);
         }
-        else if(lastScore == prevBestScore) // 최근 점수와 최고 점수가 동일
+        else if(lastScore == prevBestScore && prevBestScore != 0) // 최근 점수와 최고 점수가 동일 & 최고 점수가 0이 아닌 경우 - 즉, 최고 점수 0 / 현재 점수 0일 땐 badrestartText 출력
         {
             sosorestartText.gameObject.SetActive(true);
         }

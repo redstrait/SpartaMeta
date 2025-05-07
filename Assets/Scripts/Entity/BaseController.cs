@@ -16,10 +16,13 @@ public class BaseController : MonoBehaviour
 
     protected AnimationHandler animationHandler;
 
+    protected StatHandler statHandler;
+
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         animationHandler = GetComponent<AnimationHandler>();
+        statHandler = GetComponent<StatHandler>();
     }
 
     protected virtual void Start()
@@ -45,7 +48,7 @@ public class BaseController : MonoBehaviour
 
     private void Movment(Vector2 direction) // 이동
     {
-        direction = direction * 5; // 이동 속도
+        direction = direction * statHandler.Speed; // 이동 속도
 
         _rigidbody.velocity = direction;
         animationHandler.Move(direction); // 애니메이션 호출

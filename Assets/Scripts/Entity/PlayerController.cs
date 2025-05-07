@@ -24,7 +24,7 @@ public class PlayerController : BaseController
 
         lookDirection = (worldPos - (Vector2)transform.position);
 
-        if (lookDirection.magnitude < 0.9f) // 시선 방향 계싼
+        if (lookDirection.magnitude < 0.9f) // 시선 방향 계산
         {
             lookDirection = Vector2.zero;
         }
