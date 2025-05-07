@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     Animator animator;
     Rigidbody2D _regidbody;
+    UIManager uIManager;
 
     public float flapForce = 6f; // 점프 힘
     public float forwardSpeed = 3f; // 전진 힘
@@ -18,7 +19,11 @@ public class Player : MonoBehaviour
 
     GameManager gameManager;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        uIManager = FindObjectOfType<UIManager>(); // uImanager 초기화
+    }
+
     void Start()
     {
         gameManager = GameManager.Instance;
@@ -40,6 +45,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 일시 정지 상태일 경우
+        if(Time.timeScale == 0f)
+        {
+            // 스페이스바 or 좌클릭 시 게임 시작
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            {
+                uIManager.tutorialUI.SetActive(false); // 튜토리얼 UI 비활성화
+                Time.timeScale = 1f; // 일시 정지 해제
+            }
+        }
+
         if (isDead) // 사망한 경우
         {
             if (deathCooldown <= 0) // deathCooldown이 0 이하라면

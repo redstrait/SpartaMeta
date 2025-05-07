@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.DeleteKey("LastScoreKey");
 
         uIManager.UpdateScore(0, bestScore);
+
+        // 게임 일시 정지 - 설명 UI를 읽기 위한 시간 확보용
+        Time.timeScale = 0f;
     }
 
     public void GameOver()

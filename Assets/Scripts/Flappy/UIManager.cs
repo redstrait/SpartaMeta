@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI goodrestartText;
     public TextMeshProUGUI sosorestartText;
     public TextMeshProUGUI badrestartText;
+    public GameObject tutorialUI;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class UIManager : MonoBehaviour
         goodrestartText.gameObject.SetActive(false);
         sosorestartText.gameObject.SetActive(false);
         badrestartText.gameObject.SetActive(false);
+        tutorialUI.gameObject.SetActive(true);
     }
 
     public void SetRestart()
